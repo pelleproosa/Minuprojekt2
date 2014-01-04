@@ -6,8 +6,8 @@ public class MAIN {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		//MySQLAccess dao = new MySQLAccess();dao.readDataBase();
-	pakist_kaardid.start(52);
-		
+	//String[] jada= pakist_kaardid.start(54);
+	funktsioonid.yksjuhuslikleht(9, 36);
 
 	}
 

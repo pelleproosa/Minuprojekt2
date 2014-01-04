@@ -10,9 +10,10 @@ package pele.mysql.library.katse;
 
 public class pakist_kaardid {
 
-	public static void start(int kaartidearv){
+	public static String[] start(int kaartidearv){
 	
 	String[]jada=	sql_tegevused.start("root","pele",kaartidearv);
+	
 	int i=Integer.parseInt(jada[0]);
 	int samm=0;
        System.out.println(i);
@@ -28,6 +29,8 @@ public class pakist_kaardid {
        System.out.println(", Trump: " + jada[samm]);
 	
 	}
+	
+	return jada;
 	}
 	
 }

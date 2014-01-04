@@ -29,9 +29,9 @@ public class sql_tegevused {
     //STEP 4: Execute a query
     System.out.println("Creating statement...");
     stmt = conn.createStatement();
-    
+    String test="12";
     String sql = "UPDATE Kaardipakk_in_game " +
-            "SET Trump = 10 WHERE Järjekorranumber in (53, 54)";
+    		"SET Trump = "+test+" WHERE Järjekorranumber in (53, 54)";
 stmt.executeUpdate(sql);
 sql = "UPDATE Kaardipakk_in_game " +
         "SET Trump = 10 WHERE Järjekorranumber in (55)";
