@@ -27,24 +27,34 @@ public class teine_example {
     //STEP 4: Execute a query
     System.out.println("Creating statement...");
     stmt = conn.createStatement();
-    String sql;
-    sql = "SELECT id, first, last, age FROM employees";
+    
+    String sql = "UPDATE Kaardipakk_in_game " +
+            "SET Trump = 0 WHERE J‰rjekorranumber in (53, 54)";
+stmt.executeUpdate(sql);
+    
+    
+    
+  //  String sql;
+    sql = "SELECT J‰rjekorranumber, Mast, Nimi, V‰‰rtus, Trump FROM Kaardipakk_in_game";
     ResultSet rs = stmt.executeQuery(sql);
 
     //STEP 5: Extract data from result set
     while(rs.next()){
        //Retrieve by column name
     	
-       int id  = rs.getInt("id");
-       int age = rs.getInt("age");
-       String first = rs.getString("first");
-       String last = rs.getString("last");
+       int id  = rs.getInt("J‰rjekorranumber");
+      
+       String mast = rs.getString("Mast");
+       String nimi = rs.getString("Nimi");
+       int v22rtus = rs.getInt("V‰‰rtus");
+       String trump = rs.getString("Trump");
 
        //Display values
-       System.out.print("ID: " + id);
-       System.out.print(", Age: " + age);
-       System.out.print(", First: " + first);
-       System.out.println(", Last: " + last);
+       System.out.print("J‰rjekorranumber: " + id);
+       System.out.print(", Mast: " + mast);
+       System.out.print(", Nimi: " + nimi);
+       System.out.print(", V‰‰rtus: " + v22rtus);
+       System.out.println(", Trump: " + trump);
     }
     //STEP 6: Clean-up environment
     rs.close();
