@@ -15,7 +15,7 @@ static final String DB_URL = "jdbc:mysql://localhost/test";
 //static final String USER = "root";
 //static final String PASS = "pele";
 
-public static void start(String USER, String PASS, int juhuslik, int muudatus, String sqltabel, int player, int i ) {
+public static void start(String USER, String PASS, int juhuslik, String[] muudatus, String sqltabel, int player, int i ) {
 Connection conn = null;
 Statement stmt = null;
 
@@ -25,32 +25,33 @@ try{
   Class.forName("com.mysql.jdbc.Driver");
 
   //STEP 3: Open a connection
-  System.out.println("Connecting to database...");
+//  System.out.println("Connecting to database...");
   conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
   //STEP 4: Execute a query
-  System.out.println("Creating statement...");
+//  System.out.println("Creating statement...");
   stmt = conn.createStatement();
 
-  if (sqltabel.equalsIgnoreCase("kaardipakist_v6tmine")){
-	  
   
-String sql = "UPDATE "+sqltabel+" " +
-      "SET Erinumber = "+muudatus+" WHERE Järjekorranumber in ("+juhuslik+")";
-stmt.executeUpdate(sql);
-  }
   if (sqltabel.equalsIgnoreCase("hetkeseis"))
   {
 	  String sql = "UPDATE "+sqltabel+" " +
-		      "SET Kaart"+i+" = "+muudatus+" WHERE ID in ("+player+")";
+		      "SET Kaart"+i+" = "+muudatus[0]+" WHERE ID in ("+player+")";
 		stmt.executeUpdate(sql);
+		sql = "UPDATE kaardipakist_v6tmine " +
+			      "SET Erinumber = "+muudatus[1]+" WHERE Järjekorranumber in ("+juhuslik+")";
+			stmt.executeUpdate(sql);
 	  
   }
   if (sqltabel.equalsIgnoreCase("clear"))
   {
+	  int lugeja=0;
+	  while(lugeja<i){
+		  lugeja++;
 	  String sql = "UPDATE kaardipakist_v6tmine " +
-		      "SET Kaart"+i+" = "+muudatus+" WHERE ID in ("+player+")";
-		stmt.executeUpdate(sql);
+		      "SET Erinumber = "+lugeja+" WHERE Järjekorranumber in ("+lugeja+")";
+	  stmt.executeUpdate(sql);
+	  }
 	  
   }
   
@@ -81,7 +82,7 @@ stmt.executeUpdate(sql);
      se.printStackTrace();
   }//end finally try
 }//end try
-System.out.println("Goodbye!");
+//System.out.println(".ok.");
 
 
 }//end main

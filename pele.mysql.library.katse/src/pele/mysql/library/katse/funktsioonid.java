@@ -4,34 +4,45 @@ public class funktsioonid {
 
 	
 	public static void yksjuhuslikleht(int K2tteLehti,int pakiskaarte){
-		
+		int pakimeelespea=pakiskaarte;
 		int player=0;
 		int juhuslik=0;
-		int muudatus=0,muudatus2=0;
-		String a="kaardipakist_v6tmine";
+		String[] muudatus={"",""};
+		String a="clear";
 		String b="hetkeseis";
-		
+	pakiskaarte++;
 		while (player<4){
 		player++;
-		int i=1;	while((i-1)<K2tteLehti){
-			juhuslik=random.start(pakiskaarte);
-
-				muudatus=Integer.parseInt(sql_loe.start("root", "pele", juhuslik));
-
-			sql_muuda.start("root", "pele", juhuslik,muudatus,b,player,i);
-			if(!(juhuslik==pakiskaarte)){
-				muudatus2=Integer.parseInt(sql_loe.start("root", "pele", pakiskaarte));
-				sql_muuda.start("root", "pele", muudatus,muudatus2,a,player,i);
+	//	System.out.println("Player: "+player);
+		int i=1;	
+		while((i-1)<K2tteLehti){
+	
+			if(pakiskaarte>1){
+			juhuslik=random.start((pakiskaarte));
+			
+			while (((juhuslik==pakiskaarte)||(juhuslik==0))||(juhuslik==37)){juhuslik=random.start((pakiskaarte));}
+			}else{
+				break;
 			}
+		//	System.out.println("Kaart: "+i);
+		//	if (juhuslik==pakiskaarte){System.out.println("Viimane");}
+		//	System.out.println("Random nr: "+juhuslik);
+		//	System.out.println("pakiskaarte: "+(pakiskaarte-1));
+			muudatus=(sql_loe.start("root", "pele", juhuslik,(pakiskaarte-1)));
+		//	System.out.println("muudatus: "+muudatus[0]+" , "+muudatus[1]);
+			sql_muuda.start("root", "pele", juhuslik,muudatus,b,player,i);
 			
 			pakiskaarte--;
 			i++;
+			juhuslik=0;
 		}
 		
 		
 		}
 		
+
 		
+		sql_muuda.start("root", "pele", 0,muudatus,a,player,pakimeelespea);
 		
 		
 		

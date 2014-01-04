@@ -12,8 +12,8 @@ static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 static final String DB_URL = "jdbc:mysql://localhost/test";
 
 
-public static String start(String USER, String PASS, int kaardinumber ) {
-	String kaart="";
+public static String[] start(String USER, String PASS, int kaardinumber, int pakiskaarte ) {
+	String kaart[]={"",""};
 Connection conn = null;
 Statement stmt = null;
 
@@ -22,11 +22,11 @@ try{
   Class.forName("com.mysql.jdbc.Driver");
 
   //STEP 3: Open a connection
-  System.out.println("Connecting to database...");
+  //System.out.println("Connecting to database...");
   conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
   //STEP 4: Execute a query
-  System.out.println("Creating statement...");
+ // System.out.println("Creating statement...");
   stmt = conn.createStatement();
 
   
@@ -43,7 +43,11 @@ try{
      
      if(kaardinumber==id)
      {
-    	 kaart=rs.getString("Erinumber");
+    	 kaart[0]=rs.getString("Erinumber");
+     }
+     if(pakiskaarte==id)
+     {
+    	 kaart[1]=rs.getString("Erinumber");
      }
 
  
@@ -73,7 +77,7 @@ try{
      se.printStackTrace();
   }//end finally try
 }//end try
-System.out.println("Goodbye!");
+//System.out.println(".ok.");
 
 return kaart;
 }//end main

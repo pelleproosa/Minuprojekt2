@@ -7,7 +7,7 @@ public class MAIN {
 		// TODO Auto-generated method stub
 		//MySQLAccess dao = new MySQLAccess();dao.readDataBase();
 	//String[] jada= pakist_kaardid.start(54);
-	funktsioonid.yksjuhuslikleht(9, 36);
+	funktsioonid.yksjuhuslikleht(13, 52);
 
 	}
 
