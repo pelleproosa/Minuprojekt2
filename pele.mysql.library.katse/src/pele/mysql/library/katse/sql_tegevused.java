@@ -13,7 +13,7 @@ public class sql_tegevused {
 // static final String USER = "root";
 // static final String PASS = "pele";
  
- public static String[] start(String USER, String PASS ) {
+ public static String[] start(String USER, String PASS, int kaartidearv ) {
  Connection conn = null;
  Statement stmt = null;
  String[] jada=new String[280];
@@ -31,7 +31,7 @@ public class sql_tegevused {
     stmt = conn.createStatement();
     
     String sql = "UPDATE Kaardipakk_in_game " +
-            "SET Trump = 0 WHERE Järjekorranumber in (53, 54)";
+            "SET Trump = 10 WHERE Järjekorranumber in (53, 54)";
 stmt.executeUpdate(sql);
     
     
@@ -43,6 +43,8 @@ stmt.executeUpdate(sql);
     //STEP 5: Extract data from result set
     while(rs.next()){
        //Retrieve by column name
+    	
+    	
        int id  = rs.getInt("Järjekorranumber");
       jada[0]=""+id;
       i++;
@@ -59,6 +61,25 @@ stmt.executeUpdate(sql);
        String trump = rs.getString("Trump");
        i++;
        jada[i]=""+trump;
+       
+       
+       if(kaartidearv==36){
+    	   if (mast.equalsIgnoreCase("Risti")){jada[(i-4)]=""+(id-4);}
+    	   if (mast.equalsIgnoreCase("Ruutu")){jada[(i-4)]=""+(id-8);}
+    	   if (mast.equalsIgnoreCase("Ärtu")){jada[(i-4)]=""+(id-12);}
+    	   if (mast.equalsIgnoreCase("Poti")){jada[(i-4)]=""+(id-16);}
+    	 if  (v22rtus<6){i=i-5;}
+
+       }
+    	   
+    	   
+       if((kaartidearv==52)&&(id==52)){
+    	   break;
+       }
+    	   
+    	   
+    	   
+       
 
        //Display values
        if (id>52){
@@ -68,18 +89,11 @@ stmt.executeUpdate(sql);
        System.out.print(", Nimi: " + nimi);
        System.out.print(", Väärtus: " + v22rtus);
        System.out.println(", Trump: " + trump);
-      
-       System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-       
-       System.out.print("Järjekorranumber: " + jada[(i-4)]);
-       System.out.print(", Mast: " + jada[(i-3)]);
-       System.out.print(", Nimi: " + jada[(i-2)]);
-       System.out.print(", Väärtus: " + jada[(i-1)]);
-       System.out.println(", Trump: " + jada[i]);
-       
-       
-       
        }
+       
+       
+       
+       
     }
     //STEP 6: Clean-up environment
     rs.close();
@@ -106,6 +120,7 @@ stmt.executeUpdate(sql);
     }//end finally try
  }//end try
  System.out.println("Goodbye!");
+ if(kaartidearv==36){jada[0]=""+36;}
 return jada;
 }//end main
 }//end FirstExample
