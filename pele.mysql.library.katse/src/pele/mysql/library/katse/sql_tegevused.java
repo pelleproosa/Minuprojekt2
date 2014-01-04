@@ -33,6 +33,9 @@ public class sql_tegevused {
     String sql = "UPDATE Kaardipakk_in_game " +
             "SET Trump = 10 WHERE J‰rjekorranumber in (53, 54)";
 stmt.executeUpdate(sql);
+sql = "UPDATE Kaardipakk_in_game " +
+        "SET Trump = 10 WHERE J‰rjekorranumber in (55)";
+stmt.executeUpdate(sql);
     
     
     
@@ -76,11 +79,16 @@ stmt.executeUpdate(sql);
        if((kaartidearv==52)&&(id==52)){
     	   break;
        }
+       if((kaartidearv==54)&&(id==54)){
+    	   break;
+       }
     	   
-    	   
+    	 if(id==55){
+    		 break;
+    	 }  
     	   
        
-
+/*
        //Display values
        if (id>52){
     	   
@@ -90,7 +98,7 @@ stmt.executeUpdate(sql);
        System.out.print(", V‰‰rtus: " + v22rtus);
        System.out.println(", Trump: " + trump);
        }
-       
+       */
        
        
        

@@ -6,7 +6,7 @@ public class MAIN {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		//MySQLAccess dao = new MySQLAccess();dao.readDataBase();
-	int kaartidearv=54;	String[]jada=	sql_tegevused.start("root","pele",kaartidearv);
+	int kaartidearv=55;	String[]jada=	sql_tegevused.start("root","pele",kaartidearv);
 		int i=Integer.parseInt(jada[0]);
 		int samm=0;
 	       System.out.println(i);
