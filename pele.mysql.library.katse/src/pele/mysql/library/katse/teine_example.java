@@ -50,11 +50,14 @@ stmt.executeUpdate(sql);
        String trump = rs.getString("Trump");
 
        //Display values
+       if (id>52){
+    	   
        System.out.print("J‰rjekorranumber: " + id);
        System.out.print(", Mast: " + mast);
        System.out.print(", Nimi: " + nimi);
        System.out.print(", V‰‰rtus: " + v22rtus);
        System.out.println(", Trump: " + trump);
+       }
     }
     //STEP 6: Clean-up environment
     rs.close();
