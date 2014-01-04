@@ -45,7 +45,6 @@ public class teine_example {
        System.out.print(", Age: " + age);
        System.out.print(", First: " + first);
        System.out.println(", Last: " + last);
-       System.out.println("LÕPP!");
     }
     //STEP 6: Clean-up environment
     rs.close();
