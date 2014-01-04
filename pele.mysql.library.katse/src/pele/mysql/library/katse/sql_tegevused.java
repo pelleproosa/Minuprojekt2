@@ -4,18 +4,20 @@ package pele.mysql.library.katse;
 //STEP 1. Import required packages
 import java.sql.*;
 
-public class teine_example {
+public class sql_tegevused {
  // JDBC driver name and database URL
  static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
  static final String DB_URL = "jdbc:mysql://localhost/test";
 
  //  Database credentials
- static final String USER = "root";
- static final String PASS = "pele";
+// static final String USER = "root";
+// static final String PASS = "pele";
  
- public static void start(String[] args) {
+ public static String[] start(String USER, String PASS ) {
  Connection conn = null;
  Statement stmt = null;
+ String[] jada=new String[280];
+ int i=0;
  try{
     //STEP 2: Register JDBC driver
     Class.forName("com.mysql.jdbc.Driver");
@@ -41,13 +43,22 @@ stmt.executeUpdate(sql);
     //STEP 5: Extract data from result set
     while(rs.next()){
        //Retrieve by column name
-    	
        int id  = rs.getInt("J‰rjekorranumber");
-      
+      jada[0]=""+id;
+      i++;
+      jada[i]=""+id;
        String mast = rs.getString("Mast");
+       i++;
+       jada[i]=""+mast;
        String nimi = rs.getString("Nimi");
+       i++;
+       jada[i]=""+nimi;
        int v22rtus = rs.getInt("V‰‰rtus");
+       i++;
+       jada[i]=""+v22rtus;
        String trump = rs.getString("Trump");
+       i++;
+       jada[i]=""+trump;
 
        //Display values
        if (id>52){
@@ -57,6 +68,17 @@ stmt.executeUpdate(sql);
        System.out.print(", Nimi: " + nimi);
        System.out.print(", V‰‰rtus: " + v22rtus);
        System.out.println(", Trump: " + trump);
+      
+       System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+       
+       System.out.print("J‰rjekorranumber: " + jada[(i-4)]);
+       System.out.print(", Mast: " + jada[(i-3)]);
+       System.out.print(", Nimi: " + jada[(i-2)]);
+       System.out.print(", V‰‰rtus: " + jada[(i-1)]);
+       System.out.println(", Trump: " + jada[i]);
+       
+       
+       
        }
     }
     //STEP 6: Clean-up environment
@@ -84,5 +106,6 @@ stmt.executeUpdate(sql);
     }//end finally try
  }//end try
  System.out.println("Goodbye!");
+return jada;
 }//end main
 }//end FirstExample
