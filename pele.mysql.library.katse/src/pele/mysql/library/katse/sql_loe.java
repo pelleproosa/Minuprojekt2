@@ -9,7 +9,7 @@ public class sql_loe {
 
 // JDBC driver name and database URL
 static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-static final String DB_URL = "jdbc:mysql://localhost/test";
+static final String DB_URL = "jdbc:mysql://localhost/kaardipakk";
 
 
 public static String[] start(String USER, String PASS, int kaardinumber, int pakiskaarte ) {

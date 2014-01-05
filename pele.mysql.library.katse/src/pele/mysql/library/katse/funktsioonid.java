@@ -3,15 +3,22 @@ package pele.mysql.library.katse;
 public class funktsioonid {
 
 	
-	public static void yksjuhuslikleht(int K2tteLehti,int pakiskaarte){
+	public static void yksjuhuslikleht(int K2tteLehti,int pakiskaarte,int players){
 		int pakimeelespea=pakiskaarte;
 		int player=0;
 		int juhuslik=0;
 		String[] muudatus={"",""};
 		String a="clear";
 		String b="hetkeseis";
+		String c="puhastahetkeseis";
 	pakiskaarte++;
-		while (player<4){
+	
+	if (players==0){
+			sql_muuda.start("root", "pele", 0,muudatus,c,players,0);
+			
+	}else{
+	
+		while (player<players){
 		player++;
 	//	System.out.println("Player: "+player);
 		int i=1;	
@@ -49,5 +56,5 @@ public class funktsioonid {
 		
 	}
 	
-	
+	}
 }
