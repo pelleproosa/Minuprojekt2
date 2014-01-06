@@ -37,6 +37,7 @@ public class funktsioonid {
 		//	System.out.println("pakiskaarte: "+(pakiskaarte-1));
 			muudatus=(sql_loe.start("root", "pele", juhuslik,(pakiskaarte-1)));
 		//	System.out.println("muudatus: "+muudatus[0]+" , "+muudatus[1]);
+
 			sql_muuda.start("root", "pele", juhuslik,muudatus,b,player,i);
 			
 			pakiskaarte--;
@@ -48,7 +49,6 @@ public class funktsioonid {
 		}
 		
 
-		
 		sql_muuda.start("root", "pele", 0,muudatus,a,player,pakimeelespea);
 		
 		

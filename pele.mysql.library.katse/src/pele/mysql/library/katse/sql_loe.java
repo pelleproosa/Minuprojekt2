@@ -43,7 +43,8 @@ try{
      
      if(kaardinumber==id)
      {
-    	 kaart[0]=rs.getString("Erinumber");
+    	kaart[0]=rs.getString("Erinumber");
+
      }
      if(pakiskaarte==id)
      {

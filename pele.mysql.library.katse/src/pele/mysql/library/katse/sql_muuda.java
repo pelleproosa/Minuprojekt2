@@ -37,7 +37,8 @@ try{
   {
 	  String sql = "UPDATE "+sqltabel+" " +
 		      "SET Kaart"+i+" = "+muudatus[0]+" WHERE ID in ("+player+")";
-		stmt.executeUpdate(sql);
+	  stmt.executeUpdate(sql);
+
 		sql = "UPDATE kaardipakist_v6tmine " +
 			      "SET Erinumber = "+muudatus[1]+" WHERE Järjekorranumber in ("+juhuslik+")";
 			stmt.executeUpdate(sql);
