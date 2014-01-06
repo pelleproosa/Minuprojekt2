@@ -12,7 +12,7 @@ import java.sql.*;
 
 public class sqltekstisisestuseproov {
 //JDBC driver name and database URL
-static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 static final String DB_URL = "jdbc:mysql://localhost/test";
 
 //Database credentials
@@ -70,6 +70,12 @@ conn.close();
 		    	String sqlNimi=rs.getString("Nimi");
 		    	int sqlvanus=rs.getInt("vanus");
 System.out.println("sisestus real "+id+" on: "+sqlNimi+" ja: "+sqlvanus);
+
+
+
+
+
+
 		     }
 
 		 
