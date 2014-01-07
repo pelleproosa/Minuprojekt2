@@ -11,6 +11,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -100,14 +102,25 @@ public class BorderLayoutDemo {
         
         JButton handformaat=new JButton("handformaat");
         int i=0;
+       
         while(i<12){
         	i++;System.out.println(GLOBAL.handx[i]);
+        	final String str="You clicked the button"+i;
         	handformaat=new JButton(new ImageIcon(GLOBAL.handx[i]));
         	handformaat.setBackground(Color.GRAY);
 			handformaat.setForeground(Color.GRAY);
 			handformaat.setMargin (new Insets (0, 0, 0, 0));
 			handformaat.setBorder (raam);
 		//	handformaat.setEnabled(false);
+			handformaat.addActionListener(new ActionListener() {
+				 
+	            public void actionPerformed(ActionEvent e)
+	            {
+	                //Execute when button is pressed
+	            	
+	                System.out.println(str);
+	            }
+	        });      
 			hand.add(handformaat);
         }
         	handformaat=new JButton(new ImageIcon(GLOBAL.hand[13]));
@@ -116,6 +129,17 @@ public class BorderLayoutDemo {
 			handformaat.setMargin (new Insets (0,0, 0, 0));
 			handformaat.setBorder (raam);
 		//	handformaat.setEnabled(false);
+			handformaat.addActionListener(new ActionListener() {
+				 
+	            public void actionPerformed(ActionEvent e)
+	            {
+	                //Execute when button is pressed
+	                System.out.println("You clicked the button");
+	            }
+	        });      
+			
+			
+			
 			hand.add(handformaat);
         
 		String str="";
