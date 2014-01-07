@@ -8,4 +8,6 @@ public class GLOBAL {
 	public static String PASS="pele";
 	public static int KaartidearvPerHand=0;
 	public static int minuplayerinumber=0;
+	public static String vajutus="";
+	public static String vajutusnupp32="";
 }
