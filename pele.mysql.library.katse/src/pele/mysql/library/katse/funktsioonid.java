@@ -96,13 +96,21 @@ public class funktsioonid {
 			  i=0;
 			  while(rs.next()){
 			     //Retrieve by column name
-			  	i++;
+			  	
 			  	
 			     int id  = rs.getInt("ID");
 			     
 			     if(GLOBAL.minuplayerinumber==id)
 			     {
+			    	 
+			    	 while(i<13){
+			    		 i++;
 			    	GLOBAL.handerinr[i]=rs.getInt(("Kaart"+i));
+			    	System.out.println(GLOBAL.handerinr[i]);
+			    	
+			    	 }
+			    	
+			    	
 			    	
 			     }
 			     
@@ -123,26 +131,29 @@ public class funktsioonid {
 				  	
 				      i  = rs.getInt("Erinumber");
 				      arv=0;
-				      erinrlugeja=1;
-				     while(arv<GLOBAL.KaartidearvPerHand){
+				      erinrlugeja=0;
+				     while(arv<(GLOBAL.KaartidearvPerHand+1)){
 				    	 arv++;
 				    	 if(i==GLOBAL.handerinr[erinrlugeja]){
 				    		GLOBAL.hand[handlugeja]=rs.getString("PildiUrl");
 				    		GLOBAL.handx[handlugeja]=rs.getString("PildiUrlx");
+				    		System.out.println(GLOBAL.hand[handlugeja]+"    "+GLOBAL.handx[handlugeja]+"   "+GLOBAL.KaartidearvPerHand+"   "+handlugeja+"  "+GLOBAL.handerinr[erinrlugeja]);
 				    				handlugeja++;
+				    				arv=(GLOBAL.KaartidearvPerHand+1);
 				    	 }else{
 				    		 erinrlugeja++;
 				    	 }
 				     }
 				     
+			  }
 				     
+			 
 				     
 				    
 				     
 
 				 
 				     
-				  }
 			  
 			  
 			  

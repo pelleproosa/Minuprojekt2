@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
 
@@ -19,11 +20,18 @@ import javax.swing.JPanel;
 
 public class BorderLayoutDemo {
     public static boolean RIGHT_TO_LEFT = false;
+    static FlowLayout minuflowlayout = new FlowLayout();
 
     public static void addComponentsToPane(Container contentPane) {
+    	
+    	final JPanel minuflowlayoutpaneel = new JPanel();
+    	minuflowlayoutpaneel.setLayout(minuflowlayout);
+    	minuflowlayout.setAlignment(FlowLayout.CENTER);
+    	
+    	
 //    	Use BorderLayout. Default empty constructor with no horizontal and vertical
 //    	gaps
-    	Container aluminerida;
+//    	Container aluminerida;
  //   	aluminerida.setLayout(new BorderLayout(0,0));
     	contentPane.setLayout(new BorderLayout(0,0)); // siin valin horisontaal- ja vertikaalvahe nuppudele
         if (!(contentPane.getLayout() instanceof BorderLayout)) {
@@ -69,7 +77,7 @@ public class BorderLayoutDemo {
         jbnSampleButtons.setSize(0, 0);
         GridLayout ruudustik = new GridLayout(5,45,0,0); //GridLayout ruudustik = new GridLayout(5,65,0,0);
         GridLayout handx=new GridLayout(1,35,0,0);
-        handx.equals(Kaart1x);
+     //   handx.equals(Kaart1x);
         ruudustik.equals(Kaart2x);
         
         JPanel hand=new JPanel();
@@ -80,7 +88,7 @@ public class BorderLayoutDemo {
         hand.setSize(0, 0);
         viimanekaart.setSize(0, 0);
         
-        hand.setLayout(handx);
+        hand.setLayout(minuflowlayout);
         kaardikesed.setLayout(ruudustik);
         
         
@@ -88,8 +96,8 @@ public class BorderLayoutDemo {
         JButton handformaat=new JButton("handformaat");
         
 		String str="";
-		int i=0;
-		while(i<35){
+		int i=20;
+		while(i<36){
 				i++;
 				str=(""+i);
 				
@@ -114,12 +122,12 @@ public class BorderLayoutDemo {
         			hand.add(handformaat);
         		}
 		else{
-				handformaat=new JButton(str);
+			handformaat=new JButton(Kaart2x);
 				handformaat.setBackground(Color.GRAY);
 				handformaat.setForeground(Color.GRAY);
 				handformaat.setMargin (new Insets (0, 0, 0, 0));
 				handformaat.setBorder (null);
-				handformaat.setEnabled(false);
+			//	handformaat.setEnabled(false);
     			hand.add(handformaat);
 		}
 		}
@@ -129,7 +137,7 @@ public class BorderLayoutDemo {
 		handformaat.setMargin (new Insets (0, 0, 0, 0));
 		handformaat.setBorder (null);
 
-		viimanekaart.add(handformaat);
+		hand.add(handformaat);
 		
 		
 		
