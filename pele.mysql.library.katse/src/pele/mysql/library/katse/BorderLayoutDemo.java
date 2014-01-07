@@ -17,10 +17,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 public class BorderLayoutDemo {
     public static boolean RIGHT_TO_LEFT = false;
-    static FlowLayout minuflowlayout = new FlowLayout();
+    static FlowLayout minuflowlayout = new FlowLayout(FlowLayout.CENTER,0,0);
 
     public static void addComponentsToPane(Container contentPane) {
     	
@@ -63,12 +65,6 @@ public class BorderLayoutDemo {
         
         funktsioonid.kaardidekraanile();
    //     System.exit(0);
-        
-        ImageIcon Kaart1x = new ImageIcon(GLOBAL.handx[1]);
-        ImageIcon Kaart2x = new ImageIcon(GLOBAL.handx[2]);
-        ImageIcon Kaart3x = new ImageIcon(GLOBAL.handx[3]);
-        ImageIcon Kaart7 = new ImageIcon(GLOBAL.hand[1]);
-        
  //       JButton jbnSampleButtons = new JButton("Button 1 (PAGE_START)");
  //       contentPane.add(jbnSampleButtons, BorderLayout.PAGE_START);
         JButton nuppudeformaat= new JButton("nuppudeformaat");
@@ -78,7 +74,7 @@ public class BorderLayoutDemo {
         GridLayout ruudustik = new GridLayout(5,45,0,0); //GridLayout ruudustik = new GridLayout(5,65,0,0);
         GridLayout handx=new GridLayout(1,35,0,0);
      //   handx.equals(Kaart1x);
-        ruudustik.equals(Kaart2x);
+     //   ruudustik.equals(Kaart2x);
         
         JPanel hand=new JPanel();
         JPanel kaardikesed = new JPanel();
@@ -91,58 +87,39 @@ public class BorderLayoutDemo {
         hand.setLayout(minuflowlayout);
         kaardikesed.setLayout(ruudustik);
         
+     /*   
+        ImageIcon Kaart2x = new ImageIcon(GLOBAL.handx[2]);
+        ImageIcon Kaart3x = new ImageIcon(GLOBAL.handx[3]);
+        ImageIcon Kaart7 = new ImageIcon(GLOBAL.hand[1]);
         
-      
+      */
+        Border raam = new LineBorder(Color.BLACK, 1);
+        
+     //   JButton thickButton = new JButton("12 Pixel");
+     //   thickButton.setBorder(thickBorder);
+        
         JButton handformaat=new JButton("handformaat");
+        int i=0;
+        while(i<12){
+        	i++;System.out.println(GLOBAL.handx[i]);
+        	handformaat=new JButton(new ImageIcon(GLOBAL.handx[i]));
+        	handformaat.setBackground(Color.GRAY);
+			handformaat.setForeground(Color.GRAY);
+			handformaat.setMargin (new Insets (0, 0, 0, 0));
+			handformaat.setBorder (raam);
+		//	handformaat.setEnabled(false);
+			hand.add(handformaat);
+        }
+        	handformaat=new JButton(new ImageIcon(GLOBAL.hand[13]));
+        	handformaat.setBackground(Color.GRAY);
+			handformaat.setForeground(Color.GRAY);
+			handformaat.setMargin (new Insets (0,0, 0, 0));
+			handformaat.setBorder (raam);
+		//	handformaat.setEnabled(false);
+			hand.add(handformaat);
         
 		String str="";
-		int i=20;
-		while(i<36){
-				i++;
-				str=(""+i);
-				
-				if((i==33)||(i==34)||(i==35)||(i==36)){
-					nuppudeformaat=new JButton(Kaart1x);
-        			if(i==33){
-        				handformaat=new JButton(Kaart1x);  
-        			}
-        			if(i==34){
-        				handformaat=new JButton(Kaart2x);
-        			}
-        			if(i==35){
-        				handformaat=new JButton(Kaart3x);
-        			}
-        			if(i==36){
-        				handformaat=new JButton(Kaart3x);
-        			}
 
-        			handformaat.setMargin (new Insets (0, 0, 0, 0));
-        			handformaat.setBorder (null);
-
-        			hand.add(handformaat);
-        		}
-		else{
-			handformaat=new JButton(Kaart2x);
-				handformaat.setBackground(Color.GRAY);
-				handformaat.setForeground(Color.GRAY);
-				handformaat.setMargin (new Insets (0, 0, 0, 0));
-				handformaat.setBorder (null);
-			//	handformaat.setEnabled(false);
-    			hand.add(handformaat);
-		}
-		}
-		
-		
-		handformaat=new JButton(Kaart7);
-		handformaat.setMargin (new Insets (0, 0, 0, 0));
-		handformaat.setBorder (null);
-
-		hand.add(handformaat);
-		
-		
-		
-		
-        
         
         str="";
         i=0;
@@ -193,13 +170,10 @@ public class BorderLayoutDemo {
         
         
       jbnSampleButtons.setSize(10, 10);
-      jbnSampleButtons = new JButton( Kaart1x); 
+      jbnSampleButtons = new JButton( Kaart1); 
         
         
       jbnSampleButtons.setPreferredSize(new Dimension(0, 0));
-      
- //     aluminerida.add(hand, BorderLayout.LINE_START);
-//      aluminerida.add(viimanekaart, BorderLayout.LINE_END);
       contentPane.add(hand, BorderLayout.PAGE_END);
 
 

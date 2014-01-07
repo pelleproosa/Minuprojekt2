@@ -152,7 +152,7 @@ catch(SQLException e){}
 			mastx=hx;
 		}
 		if ((a>39)&&(a<53)){
-			if(a>35){
+			if(a>48){
 				if(a==49){
 				pilt="J";
 				}
