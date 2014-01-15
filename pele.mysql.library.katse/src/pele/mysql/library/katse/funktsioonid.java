@@ -4,7 +4,7 @@ public class funktsioonid {
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 	static final String DB_URL = "jdbc:mysql://localhost/kaardipakk";
 	
-	public static void yksjuhuslikleht(int K2tteLehti,int pakiskaarte,int players){
+	public static void pakijagamine(int K2tteLehti,int pakiskaarte,int players){
 		int pakimeelespea=pakiskaarte;
 		int player=0;
 		int juhuslik=0;

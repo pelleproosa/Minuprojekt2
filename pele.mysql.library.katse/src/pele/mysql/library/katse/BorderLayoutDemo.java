@@ -109,7 +109,7 @@ public class BorderLayoutDemo {
         JButton handformaat=new JButton("handformaat");
         int i=0;
         ImageIcon Kaart = new ImageIcon();
-        while(i<12){
+        while(i<(GLOBAL.KaartidearvPerHand-1)){
         	i++;System.out.println(GLOBAL.handx[i]);
         	final String str="You clicked the button"+i;
         	final int ihi=i;
