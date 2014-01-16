@@ -220,8 +220,8 @@ public class BorderLayoutDemo {
 
         			kaardikesed.add(nuppudeformaat);
         		}else{
-        			nuppudeformaat=new JButton(str);
-        			nuppudeformaat.setBackground(Color.GRAY);
+        			nuppudeformaat=new JButton(); //nuppudeformaat=new JButton(str);
+        			nuppudeformaat.setBackground(Color.gray);
         			nuppudeformaat.setForeground(Color.GRAY);
         		//	nuppudeformaat.setMargin (new Insets (0, 0, 0, 0));
         			nuppudeformaat.setBorder (null);
