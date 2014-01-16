@@ -57,7 +57,7 @@ try{
 	  String sql = "UPDATE kaardipakist_v6tmine " +
 		      "SET Erinumber = "+0+" WHERE Järjekorranumber in ("+lugeja+")";
 	  stmt.executeUpdate(sql);
-	  System.out.println("clear");
+	 // System.out.println("clear");
 	  }
 	  
 	  

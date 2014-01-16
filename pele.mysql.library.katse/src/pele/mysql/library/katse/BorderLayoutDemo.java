@@ -67,8 +67,7 @@ public class BorderLayoutDemo {
         		"D:/temp/kaardid/2/c/cQ.png");
         ImageIcon Kaart5 = new ImageIcon(
         		"D:/temp/kaardid/2/c/cK.png");
-        ImageIcon Kaart6 = new ImageIcon(
-        		"D:/temp/kaardid/2/c/cA.png");
+  //      ImageIcon Kaart6 = new ImageIcon("D:/temp/kaardid/2/c/cA.png");
         
         funktsioonid.kaardidekraanile();
  //       JButton jbnSampleButtons = new JButton("Button 1 (PAGE_START)");
@@ -79,7 +78,7 @@ public class BorderLayoutDemo {
         nuppudeformaat.setPreferredSize(new Dimension(0, 0));
         jbnSampleButtons.setSize(0, 0);
         GridLayout ruudustik = new GridLayout(5,45,0,0); //GridLayout ruudustik = new GridLayout(5,65,0,0);
-        GridLayout handx=new GridLayout(1,35,0,0);
+     //   GridLayout handx=new GridLayout(1,35,0,0);
      //   handx.equals(Kaart1x);
      //   ruudustik.equals(Kaart2x);
         
@@ -100,18 +99,20 @@ public class BorderLayoutDemo {
         ImageIcon Kaart7 = new ImageIcon(GLOBAL.hand[1]);
         
       */
-        Border raam = new LineBorder(Color.BLACK, 1);
+        final Border raam = new LineBorder(Color.BLACK, 1);
+        final Border raam2 = new LineBorder(Color.LIGHT_GRAY, 1);
         
      //   JButton thickButton = new JButton("12 Pixel");
      //   thickButton.setBorder(thickBorder);
-        ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
-        JButton handformaat=new JButton("handformaat");
+ //       ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
+ //       JButton handformaat=new JButton("handformaat");
         int i=0;
-        ImageIcon Kaart = new ImageIcon();
+//        ImageIcon Kaart = new ImageIcon();
         while(i<(GLOBAL.KaartidearvPerHand-1)){
-        	i++;System.out.println(GLOBAL.handx[i]);
-        	final String str="You clicked the button"+i;
-        	final int ihi=i;
+        	i++;
+        	//System.out.println(GLOBAL.handx[i]);
+ //       	final String str="You clicked the button"+i;
+ //       	final int ihi=i;
         	final String str2=""+GLOBAL.hand[i];
         	final String str3="D:/temp/kaardid/2/ec.png";
         	
@@ -126,11 +127,13 @@ public class BorderLayoutDemo {
         	hiireke.addMouseListener(new java.awt.event.MouseAdapter() {
         		public void mouseEntered(java.awt.event.MouseEvent evt) {
         			hiireke.setBackground(Color.GREEN);
+        			hiireke.setBorder (raam2);
         			GLOBAL.vajutus=str2;
 	            	ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
 	            	proovinupuke.setIcon(Kaart41);
         		}
         		public void mouseExited(java.awt.event.MouseEvent evt) {
+        			hiireke.setBorder (raam);
         			GLOBAL.vajutus=str3;
 	            	ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
 	            	proovinupuke.setIcon(Kaart41);
@@ -218,11 +221,13 @@ public class BorderLayoutDemo {
     	hiireke.addMouseListener(new java.awt.event.MouseAdapter() {
     		public void mouseEntered(java.awt.event.MouseEvent evt) {
     			hiireke.setBackground(Color.GREEN);
+    			hiireke.setBorder (raam2);
     			GLOBAL.vajutus=str2;
             	ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
             	proovinupuke.setIcon(Kaart41);
     		}
     		public void mouseExited(java.awt.event.MouseEvent evt) {
+    			hiireke.setBorder (raam);
     			GLOBAL.vajutus=str3;
             	ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
             	proovinupuke.setIcon(Kaart41);

@@ -84,7 +84,7 @@ public class funktsioonid {
 			  }
 			  sql=(sql+"FROM hetkeseis");
 			  sql="SELECT * FROM hetkeseis";
-			  System.out.println(sql);
+		//	  System.out.println(sql);
 			  ResultSet rs = stmt.executeQuery(sql);
 		//	  System.exit(0);
 
@@ -102,7 +102,7 @@ public class funktsioonid {
 			    	 while(i<13){
 			    		 i++;
 			    	GLOBAL.handerinr[i]=rs.getInt(("Kaart"+i));
-			    	System.out.println(GLOBAL.handerinr[i]);
+			    	//System.out.println(GLOBAL.handerinr[i]);
 			    	
 			    	 }
 			    	
@@ -133,7 +133,7 @@ public class funktsioonid {
 				    	 if(i==GLOBAL.handerinr[erinrlugeja]){
 				    		GLOBAL.hand[handlugeja]=rs.getString("PildiUrl");
 				    		GLOBAL.handx[handlugeja]=rs.getString("PildiUrlx");
-				    		System.out.println(GLOBAL.hand[handlugeja]+"    "+GLOBAL.handx[handlugeja]+"   "+GLOBAL.KaartidearvPerHand+"   "+handlugeja+"  "+GLOBAL.handerinr[erinrlugeja]);
+				    	//	System.out.println(GLOBAL.hand[handlugeja]+"    "+GLOBAL.handx[handlugeja]+"   "+GLOBAL.KaartidearvPerHand+"   "+handlugeja+"  "+GLOBAL.handerinr[erinrlugeja]);
 				    				handlugeja++;
 				    				arv=(GLOBAL.KaartidearvPerHand+1);
 				    	 }else{
@@ -260,13 +260,13 @@ public class funktsioonid {
 		
 		
 		
-		System.out.println("kaarte pakis: "+GLOBAL.Kaartepakis);
-		int i=0;
+	//	System.out.println("kaarte pakis: "+GLOBAL.Kaartepakis);
+/*		int i=0;
 		while (i<GLOBAL.Kaartepakis){
 			System.out.println(kaardid[i]);
 			i++;
 		}
-		
+*/		
 		segakaardipakk(kaardid);
 	}
 	
@@ -321,7 +321,7 @@ public class funktsioonid {
 						  "SET Erinumber = "+kaardid[i]+" WHERE Järjekorranumber in ("+(i+1)+")";
 				  stmt.executeUpdate(sql);
 				  
-				  System.out.println(i+"    "+kaardid[i]);
+			//	  System.out.println(i+"    "+kaardid[i]);
 				  i++;
 			  }
 
