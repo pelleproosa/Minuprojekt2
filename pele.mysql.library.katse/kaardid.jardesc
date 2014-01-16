@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
+<jardesc>
+    <jar path="C:/Users/pele/Desktop/eclipse/JAR/kaardid.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/pele.mysql.library.katse/kaardid.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="true" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" mainClassHandleIdentifier="=pele.mysql.library.katse/src&lt;pele.mysql.library.katse{MAIN.java[MAIN" manifestLocation="/pele.mysql.library.katse/kaardid" manifestVersion="1.0" reuseManifest="false" saveManifest="true" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
+        <folder path="/pele.mysql.library.katse/lib"/>
+        <file path="/pele.mysql.library.katse/.gitignore"/>
+        <javaElement handleIdentifier="=pele.mysql.library.katse/src"/>
+        <file path="/pele.mysql.library.katse/.classpath"/>
+        <file path="/pele.mysql.library.katse/.project"/>
+    </selectedElements>
+</jardesc>
