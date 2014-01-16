@@ -29,7 +29,8 @@ public class BorderLayoutDemo {
     public static boolean RIGHT_TO_LEFT = false;
     static FlowLayout minuflowlayout = new FlowLayout(FlowLayout.CENTER,0,0);
     static JButton proovinupuke=new JButton(new ImageIcon("D:/temp/kaardid/2/ec.png"));
-    static JButton nupp32=new JButton(new ImageIcon("D:/temp/kaardid/2/ec.png"));
+    static JButton nupp32=new JButton();
+ //   static JButton nupp32=new JButton(new ImageIcon("D:/temp/kaardid/2/ec.png"));
 	//proovinupuke.setIcon(new ImageIcon("D:/temp/kaardid/2/ec.png"));
     public static void addComponentsToPane(Container contentPane) {
     	
@@ -56,10 +57,9 @@ public class BorderLayoutDemo {
         JButton jbnSampleButtons = new JButton("Button 1 (PAGE_START)");
         contentPane.add(jbnSampleButtons, BorderLayout.PAGE_START);
 
-        
-        ImageIcon Kaart1 = new ImageIcon(
-        		"D:/temp/kaardid/2/joker/jokerb.png");
-        ImageIcon Kaart2 = new ImageIcon(
+		nupp32.setBackground(Color.GRAY);
+		nupp32.setForeground(Color.GRAY);
+       ImageIcon Kaart2 = new ImageIcon(
                 "D:/temp/kaardid/2/servad/b1fv.png");
         ImageIcon Kaart3 = new ImageIcon(
         		"D:/temp/kaardid/2/c/c10.png");
@@ -67,21 +67,15 @@ public class BorderLayoutDemo {
         		"D:/temp/kaardid/2/c/cQ.png");
         ImageIcon Kaart5 = new ImageIcon(
         		"D:/temp/kaardid/2/c/cK.png");
-  //      ImageIcon Kaart6 = new ImageIcon("D:/temp/kaardid/2/c/cA.png");
-        
-        funktsioonid.kaardidekraanile();
- //       JButton jbnSampleButtons = new JButton("Button 1 (PAGE_START)");
- //       contentPane.add(jbnSampleButtons, BorderLayout.PAGE_START);
+       funktsioonid.kaardidekraanile();
+
         JButton nuppudeformaat= new JButton("nuppudeformaat");
 
         contentPane.add(nuppudeformaat, BorderLayout.PAGE_END);
         nuppudeformaat.setPreferredSize(new Dimension(0, 0));
         jbnSampleButtons.setSize(0, 0);
         GridLayout ruudustik = new GridLayout(5,45,0,0); //GridLayout ruudustik = new GridLayout(5,65,0,0);
-     //   GridLayout handx=new GridLayout(1,35,0,0);
-     //   handx.equals(Kaart1x);
-     //   ruudustik.equals(Kaart2x);
-        
+
         JPanel hand=new JPanel();
         JPanel kaardikesed = new JPanel();
         JPanel viimanekaart=new JPanel();
@@ -92,13 +86,7 @@ public class BorderLayoutDemo {
         
         hand.setLayout(minuflowlayout);
         kaardikesed.setLayout(ruudustik);
-        
-     /*   
-        ImageIcon Kaart2x = new ImageIcon(GLOBAL.handx[2]);
-        ImageIcon Kaart3x = new ImageIcon(GLOBAL.handx[3]);
-        ImageIcon Kaart7 = new ImageIcon(GLOBAL.hand[1]);
-        
-      */
+
         final Border raam = new LineBorder(Color.BLACK, 1);
         final Border raam2 = new LineBorder(Color.LIGHT_GRAY, 1);
         
@@ -129,35 +117,18 @@ public class BorderLayoutDemo {
         			hiireke.setBackground(Color.GREEN);
         			hiireke.setBorder (raam2);
         			GLOBAL.vajutus=str2;
-	            	ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
-	            	proovinupuke.setIcon(Kaart41);
+	            //	ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
+	            //	proovinupuke.setIcon(Kaart41);
         		}
         		public void mouseExited(java.awt.event.MouseEvent evt) {
         			hiireke.setBorder (raam);
         			GLOBAL.vajutus=str3;
-	            	ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
-	            	proovinupuke.setIcon(Kaart41);
+	            //	ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
+	            //	proovinupuke.setIcon(Kaart41);
         			
         			//hiireke.setBackground(UIManager.getColor("control"));
         		}
-        		/*
-                @Override
-                public void mouseReleased(MouseEvent e) {
-                    //added check for MouseEvent.BUTTON1 which is left click
-                    if (e.isPopupTrigger() || e.getButton() == MouseEvent.BUTTON1) {
-                        JOptionPane.showMessageDialog(null, "Hello!");
-                        // do your work here   
-                    }
-                }
-                @Override
-                public void mousePressed(MouseEvent e) {
-                    //added check for MouseEvent.BUTTON1 which is left click
-                    if (e.isPopupTrigger() || e.getButton() == MouseEvent.BUTTON1) {
-                        JOptionPane.showConfirmDialog(null, "Pressed");
-                        // do your work here   
-                    }
-                }
-                */
+
                 public void mouseClicked(MouseEvent e) {
                     //added check for MouseEvent.BUTTON1 which is left click
                     if (e.isPopupTrigger() || e.getButton() == MouseEvent.BUTTON1) {
@@ -170,46 +141,9 @@ public class BorderLayoutDemo {
                 }
         	});
         	hand.add(hiireke);
-        	
-        	
-        	
-        	
-        	
-        	/*
-        	
-        	
-        	handformaat=new JButton(new ImageIcon(GLOBAL.handx[i]));
-        	handformaat.setBackground(Color.GRAY);
-			handformaat.setForeground(Color.GRAY);
-			handformaat.setMargin (new Insets (0, 0, 0, 0));
-			handformaat.setBorder (raam);
-		//	handformaat.setEnabled(false);
-			
-			handformaat.addActionListener(new ActionListener() {
-				 
-	            public void actionPerformed(ActionEvent e)
-	            {
-	            	GLOBAL.vajutus=str2;
-	            	ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
-	            	proovinupuke.setIcon(Kaart41);
-	                //Execute when button is pressed
-	              //  System.out.println(str+"   "+str2);
-	            }
-	        });      
-			hand.add(handformaat);
-			
-			
-			*/
-			
-			
-			
-			
-			
-			
-			
-			
+
         }
-  //      System.exit(0);
+ 
         
         final String str2=""+GLOBAL.hand[GLOBAL.KaartidearvPerHand];
         final String str3="D:/temp/kaardid/2/ec.png";
@@ -223,14 +157,14 @@ public class BorderLayoutDemo {
     			hiireke.setBackground(Color.GREEN);
     			hiireke.setBorder (raam2);
     			GLOBAL.vajutus=str2;
-            	ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
-            	proovinupuke.setIcon(Kaart41);
+          //  	ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
+          //  	proovinupuke.setIcon(Kaart41);
     		}
     		public void mouseExited(java.awt.event.MouseEvent evt) {
     			hiireke.setBorder (raam);
     			GLOBAL.vajutus=str3;
-            	ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
-            	proovinupuke.setIcon(Kaart41);
+          //  	ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
+          //  	proovinupuke.setIcon(Kaart41);
     			
             	
             	
@@ -252,50 +186,7 @@ public class BorderLayoutDemo {
     	hand.add(hiireke);
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        /*
-        
-        
-        	final String str2=""+GLOBAL.hand[13];
-        	handformaat=new JButton(new ImageIcon(GLOBAL.hand[13]));
-        	handformaat.setBackground(Color.GRAY);
-			handformaat.setForeground(Color.GRAY);
-			handformaat.setMargin (new Insets (0,0, 0, 0));
-			handformaat.setBorder (raam);
-		//	handformaat.setEnabled(false);
-			handformaat.addActionListener(new ActionListener() {
-				 
-	            public void actionPerformed(ActionEvent e)
-	            {	
-	            	GLOBAL.vajutus=str2;
-	            	ImageIcon Kaart41=new ImageIcon(GLOBAL.vajutus);
-	            	proovinupuke.setIcon(Kaart41);
-	            	
-	            	
-	            	
-	                //Execute when button is pressed
-	               // System.out.println("You clicked the button");
-	            }
-	        });      
-			
-			
-			
-			hand.add(handformaat);
-			
-			
-			*/
-			
-			
-			
-        
-	//System.exit(0);		//Kaart=(new ImageIcon(GLOBAL.handx[ihi]));
+
 		String str="";
 
         
@@ -304,8 +195,8 @@ public class BorderLayoutDemo {
         	while (i<45){   //while (i<65){ 
         		i++;
         		str=(""+i);
-        		if((i==45)||(i==14)||(i==22)||(i==24)||(i==32)||(i==41)){
-        			nuppudeformaat=new JButton(Kaart1);
+        		if((i==45)||(i==14)||(i==22)||(i==24)||(i==32)){
+        		//	nuppudeformaat=new JButton(Kaart1);
         			if(i==14){
         				nuppudeformaat=new JButton(Kaart3);  
         			}
@@ -318,11 +209,7 @@ public class BorderLayoutDemo {
         			if(i==32){
         				nuppudeformaat=(nupp32);
         			}
-        			if(i==41){
-
-        					nuppudeformaat=(proovinupuke);
-        			
-        			}
+        			if(i==41){nuppudeformaat=(proovinupuke);}
         			if(i==45){
         				
         					nuppudeformaat=new JButton(Kaart2);
@@ -336,7 +223,7 @@ public class BorderLayoutDemo {
         			nuppudeformaat=new JButton(str);
         			nuppudeformaat.setBackground(Color.GRAY);
         			nuppudeformaat.setForeground(Color.GRAY);
-        			nuppudeformaat.setMargin (new Insets (0, 0, 0, 0));
+        		//	nuppudeformaat.setMargin (new Insets (0, 0, 0, 0));
         			nuppudeformaat.setBorder (null);
         			nuppudeformaat.setEnabled(false);
         			kaardikesed.add(nuppudeformaat);
@@ -355,7 +242,7 @@ public class BorderLayoutDemo {
         
         
       jbnSampleButtons.setSize(10, 10);
-      jbnSampleButtons = new JButton( Kaart1); 
+      jbnSampleButtons = new JButton( ); 
         
         
       jbnSampleButtons.setPreferredSize(new Dimension(0, 0));
