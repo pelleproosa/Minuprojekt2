@@ -8,7 +8,7 @@ import java.sql.*;
 
 public class sql_muuda {
 // JDBC driver name and database URL
-static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+//static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 static final String DB_URL = "jdbc:mysql://localhost/kaardipakk";
 
 //  Database credentials
@@ -47,12 +47,19 @@ try{
   if (sqltabel.equalsIgnoreCase("clear"))
   {
 	  int lugeja=0;
-	  while(lugeja<i){
+	  while(lugeja<55){
 		  lugeja++;
+		  
+		  
+		  
+		  
+		  
 	  String sql = "UPDATE kaardipakist_v6tmine " +
-		      "SET Erinumber = "+lugeja+" WHERE Järjekorranumber in ("+lugeja+")";
+		      "SET Erinumber = "+0+" WHERE Järjekorranumber in ("+lugeja+")";
 	  stmt.executeUpdate(sql);
+	  System.out.println("clear");
 	  }
+	  
 	  
   }
   
@@ -62,7 +69,7 @@ try{
 	  int lugeja2=0;
 	  while(lugeja<4){
 		  lugeja++;
-		  while  (lugeja2<13){
+		  while  (lugeja2<GLOBAL.Kaartepakis){
 			lugeja2++;
 			String sql = "UPDATE hetkeseis " +
 		      "SET Kaart"+lugeja2+" = 0 WHERE ID in ("+lugeja+")";
@@ -73,6 +80,9 @@ try{
 	  }
 	  
   }
+  
+
+  
   
   
 //  String sql;

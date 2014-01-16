@@ -71,7 +71,6 @@ public class BorderLayoutDemo {
         		"D:/temp/kaardid/2/c/cA.png");
         
         funktsioonid.kaardidekraanile();
-   //     System.exit(0);
  //       JButton jbnSampleButtons = new JButton("Button 1 (PAGE_START)");
  //       contentPane.add(jbnSampleButtons, BorderLayout.PAGE_START);
         JButton nuppudeformaat= new JButton("nuppudeformaat");
@@ -116,6 +115,7 @@ public class BorderLayoutDemo {
         	final String str2=""+GLOBAL.hand[i];
         	final String str3="D:/temp/kaardid/2/ec.png";
         	
+        
         	
         	
         	final JButton hiireke=new JButton(new ImageIcon(GLOBAL.handx[i]));
@@ -206,10 +206,11 @@ public class BorderLayoutDemo {
 			
 			
         }
+  //      System.exit(0);
         
-        final String str2=""+GLOBAL.hand[13];
+        final String str2=""+GLOBAL.hand[GLOBAL.KaartidearvPerHand];
         final String str3="D:/temp/kaardid/2/ec.png";
-        final JButton hiireke=new JButton(new ImageIcon(GLOBAL.hand[13]));
+        final JButton hiireke=new JButton(new ImageIcon(GLOBAL.hand[GLOBAL.KaartidearvPerHand]));
     	hiireke.setBackground(Color.GRAY);
     	hiireke.setForeground(Color.GRAY);
     	hiireke.setMargin (new Insets (0, 0, 0, 0));

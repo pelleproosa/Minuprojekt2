@@ -11,10 +11,10 @@ public class MAIN {
 	//	abiprogrammid.start();
 
 		
-int players=0;funktsioonid.pakijagamine(0, 0,players);GLOBAL.KaartidearvPerHand=13;GLOBAL.Kaartepakis=52;players=4;funktsioonid.pakijagamine(GLOBAL.KaartidearvPerHand, GLOBAL.Kaartepakis,players); //players 1-4              /// segab uue jaotuse
+funktsioonid.pakijagamine();GLOBAL.Players=4;GLOBAL.KaartidearvPerHand=6;GLOBAL.Kaartepakis=36;funktsioonid.pakijagamine(); //players 1-4              /// segab uue jaotuse
+funktsioonid.teekaardipakk();
 //String a="lisa";String b="kustuta";sqltekstisisestuseproov.start("root", "pele",10, "noh!",20,a);
        GLOBAL.minuplayerinumber=2; BorderLayoutDemo.start(null);// nupud kogu aknas näide(nagu veebilehe progemine)
-
 		
 	
 		

@@ -3,45 +3,41 @@ import java.sql.*;
 public class funktsioonid {
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 	static final String DB_URL = "jdbc:mysql://localhost/kaardipakk";
+	public static void pakijagamine(){
 	
-	public static void pakijagamine(int K2tteLehti,int pakiskaarte,int players){
-		int pakimeelespea=pakiskaarte;
+		int pakimeelespea=GLOBAL.Kaartepakis;
 		int player=0;
 		int juhuslik=0;
 		String[] muudatus={"",""};
 		String a="clear";
 		String b="hetkeseis";
 		String c="puhastahetkeseis";
-	pakiskaarte++;
+		GLOBAL.Kaartepakis++;
 	
-	if (players==0){
-			sql_muuda.start("root", "pele", 0,muudatus,c,players,0);
+	if (GLOBAL.Players==0){
+			sql_muuda.start("root", "pele", 0,muudatus,c,GLOBAL.Players,0);
 			
 	}else{
 	
-		while (player<players){
+		while (player<GLOBAL.Players){
 		player++;
-	//	System.out.println("Player: "+player);
+
 		int i=1;	
-		while((i-1)<K2tteLehti){
+		while((i-1)<GLOBAL.KaartidearvPerHand){
 	
-			if(pakiskaarte>1){
-			juhuslik=random.start((pakiskaarte));
+			if(GLOBAL.Kaartepakis>1){
+			juhuslik=random.start((GLOBAL.Kaartepakis));
 			
-			while (((juhuslik==pakiskaarte)||(juhuslik==0))||(juhuslik==37)){juhuslik=random.start((pakiskaarte));}
+			while (((juhuslik==GLOBAL.Kaartepakis)||(juhuslik==0))||(juhuslik==37)){juhuslik=random.start((GLOBAL.Kaartepakis));}
 			}else{
 				break;
 			}
-		//	System.out.println("Kaart: "+i);
-		//	if (juhuslik==pakiskaarte){System.out.println("Viimane");}
-		//	System.out.println("Random nr: "+juhuslik);
-		//	System.out.println("pakiskaarte: "+(pakiskaarte-1));
-			muudatus=(sql_loe.start("root", "pele", juhuslik,(pakiskaarte-1)));
-		//	System.out.println("muudatus: "+muudatus[0]+" , "+muudatus[1]);
+
+			muudatus=(sql_loe.start("root", "pele", juhuslik,(GLOBAL.Kaartepakis-1)));
 
 			sql_muuda.start("root", "pele", juhuslik,muudatus,b,player,i);
 			
-			pakiskaarte--;
+			GLOBAL.Kaartepakis--;
 			i++;
 			juhuslik=0;
 		}
@@ -56,7 +52,7 @@ public class funktsioonid {
 		
 		
 	}
-	
+	GLOBAL.Kaartepakis=pakimeelespea;
 	}
 	
 	public static boolean kaardidekraanile(){
@@ -191,12 +187,180 @@ public class funktsioonid {
 		
 		return true;
 	}
+	public static void teekaardipakk(){
+
+		int kaardid[]=new int[GLOBAL.Kaartepakis];
+
+		
+		
+		if (GLOBAL.Kaartepakis==36){                   /////// 36-ne pakk jadana  valmis lisamiseks tabelisse: kaardipakk.kaardipakist võtmine
+			
+			int a=0;
+			int i=0;
+			int o=0;
+			while(a<4){
+			
+			while(i<9){
+				
+				kaardid[o]=(i+5);
+				
+				
+				i++;
+				o++;
+			}
+			i=i+9;
+			while(i<27){
+				
+				kaardid[o]=(i);
+				
+				
+				i++;
+				o++;
+			}
+			i=i+4;
+			while(i<40){
+				
+				kaardid[o]=(i);
+				
+				
+				i++;
+				o++;
+			}
+			i=i+4;
+			while(i<53){
+				
+				kaardid[o]=(i);
+				
+				
+				i++;
+				o++;
+			}
+			
+			
+			
+			
+			a++;
+			}
+		}
+		
+		
+		if (GLOBAL.Kaartepakis>51){
+			int i=0;
+			while(i<GLOBAL.Kaartepakis){
+				
+				kaardid[i]=(i+1);
+				
+				
+				i++;
+				
+			}
+		}
+		
+		
+		
+		
+		
+		System.out.println("kaarte pakis: "+GLOBAL.Kaartepakis);
+		int i=0;
+		while (i<GLOBAL.Kaartepakis){
+			System.out.println(kaardid[i]);
+			i++;
+		}
+		
+		segakaardipakk(kaardid);
+	}
 	
 	
+	public static void segakaardipakk(int[]kaardid){
 	
+		int i=(GLOBAL.Kaartepakis-1);
+		int[] buffer={0,0,0};
+		
+		while (i>1){
+			buffer[0]=random.start(i);
+			if((buffer[0]>0)){
+			buffer[1]=kaardid[(buffer[0])];
+			buffer[2]=kaardid[i];
+			kaardid[i]=buffer[1];
+			kaardid[(buffer[0])]=buffer[2];
+			i--;
+			}
+			
+		}
+		
+		
+		panekaardidtabelissevalmis(kaardid);
+		
+		
+	}
 	
-	
-	
+	public static void panekaardidtabelissevalmis(int[]kaardid){
+		
+		Connection conn = null;
+		Statement stmt = null;
+		try{
+			  //STEP 2: Register JDBC driver
+			  Class.forName("com.mysql.jdbc.Driver");
+
+			  //STEP 3: Open a connection
+			//  System.out.println("Connecting to database...");
+			  conn = DriverManager.getConnection(DB_URL,GLOBAL.USER,GLOBAL.PASS);
+
+			  //STEP 4: Execute a query
+			//  System.out.println("Creating statement...");
+			  stmt = conn.createStatement();
+
+			  
+			  
+				  
+				  
+			  int i=0;
+			  while (i<GLOBAL.Kaartepakis){
+				  
+				  String sql = "UPDATE kaardipakist_v6tmine " +
+						  "SET Erinumber = "+kaardid[i]+" WHERE Järjekorranumber in ("+(i+1)+")";
+				  stmt.executeUpdate(sql);
+				  
+				  System.out.println(i+"    "+kaardid[i]);
+				  i++;
+			  }
+
+				  
+			  
+			 
+
+			  
+
+			  
+			  
+			  
+			//  String sql;
+
+			  //STEP 6: Clean-up environment
+			 
+			  stmt.close();
+			  conn.close();
+			}catch(SQLException se){
+			  //Handle errors for JDBC
+			  se.printStackTrace();
+			}catch(Exception e){
+			  //Handle errors for Class.forName
+			  e.printStackTrace();
+			}finally{
+			  //finally block used to close resources
+			  try{
+			     if(stmt!=null)
+			        stmt.close();
+			  }catch(SQLException se2){
+			  }// nothing we can do
+			  try{
+			     if(conn!=null)
+			        conn.close();
+			  }catch(SQLException se){
+			     se.printStackTrace();
+			  }//end finally try
+			}//end try
+	}
 	
 	
 	
