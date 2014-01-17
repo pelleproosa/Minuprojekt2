@@ -7,17 +7,28 @@ public class funktsioonid {
 	
 		int pakimeelespea=GLOBAL.Kaartepakis;
 		int player=0;
-		int juhuslik=0;
-		String[] muudatus={"",""};
+		int mitu=0;
+//		String[] muudatus={"",""};
 		String a="clear";
-		String b="hetkeseis";
+		String b="hetkeseis_jaga_esimest_korda";
 		String c="puhastahetkeseis";
-		GLOBAL.Kaartepakis++;
+		
 	
 	if (GLOBAL.Players==0){
-			sql_muuda.start("root", "pele", 0,muudatus,c,GLOBAL.Players,0);
+			sql_muuda.start("root", "pele", 0,c,GLOBAL.Players);
 			
-	}else{
+	}
+	else{
+		
+		sql_muuda.start("root", "pele", mitu,b,GLOBAL.Players);
+	}
+	
+	
+	
+	
+	
+	/*
+	else{
 	
 		while (player<GLOBAL.Players){
 		player++;
@@ -52,7 +63,9 @@ public class funktsioonid {
 		
 		
 	}
-	GLOBAL.Kaartepakis=pakimeelespea;
+	
+	*/
+	//GLOBAL.Kaartepakis=pakimeelespea;
 	}
 	
 	public static boolean kaardidekraanile(){
@@ -77,12 +90,12 @@ public class funktsioonid {
 			//  String sql;
 			  int i=0;
 			  String sql = "SELECT ID, MängijaNimi, Skoor ";
-			  while(i<GLOBAL.KaartidearvPerHand){
+		/*	  while(i<GLOBAL.KaartidearvPerHand){
 				  i++;
 			  sql =(sql+ "Kaart"+i+", ");
 					  
 			  }
-			  sql=(sql+"FROM hetkeseis");
+			  sql=(sql+"FROM hetkeseis");*/
 			  sql="SELECT * FROM hetkeseis";
 		//	  System.out.println(sql);
 			  ResultSet rs = stmt.executeQuery(sql);
@@ -99,7 +112,7 @@ public class funktsioonid {
 			     if(GLOBAL.minuplayerinumber==id)
 			     {
 			    	 
-			    	 while(i<13){
+			    	 while(i<55){
 			    		 i++;
 			    	GLOBAL.handerinr[i]=rs.getInt(("Kaart"+i));
 			    	//System.out.println(GLOBAL.handerinr[i]);
@@ -313,23 +326,26 @@ public class funktsioonid {
 			  
 			  
 				  
-				  
+
 			  int i=0;
 			  while (i<GLOBAL.Kaartepakis){
 				  
 				  String sql = "UPDATE kaardipakist_v6tmine " +
-						  "SET Erinumber = "+kaardid[i]+" WHERE Järjekorranumber in ("+(i+1)+")";
-				  stmt.executeUpdate(sql);
+						  "SET Erinumber = "+kaardid[i]+" WHERE ID in ("+(i+1)+")";
 				  
+
+				  
+				  stmt.executeUpdate(sql);
+
 			//	  System.out.println(i+"    "+kaardid[i]);
 				  i++;
 			  }
 
-				  
+
 			  
 			 
 
-			  
+			 
 
 			  
 			  

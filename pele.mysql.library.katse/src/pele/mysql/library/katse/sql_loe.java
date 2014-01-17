@@ -31,7 +31,7 @@ try{
 
   
 //  String sql;
-  String sql = "SELECT Järjekorranumber, Erinumber FROM kaardipakist_v6tmine";
+  String sql = "SELECT ID, Erinumber FROM kaardipakist_v6tmine";
   ResultSet rs = stmt.executeQuery(sql);
 
   //STEP 5: Extract data from result set
@@ -39,7 +39,7 @@ try{
      //Retrieve by column name
   	
   	
-     int id  = rs.getInt("Järjekorranumber");
+     int id  = rs.getInt("ID");
      
      if(kaardinumber==id)
      {
