@@ -115,6 +115,7 @@ try
 	  								  							stmt.executeUpdate(sql);
 	  								  							System.out.println("kaardipakist_v6tmine Erinumber ="+0+" WHERE ID in "+id);
 	  								  							GLOBAL.Kaartepakis--;
+	  								  							GLOBAL.minukaartidearv++;
 
   }
   

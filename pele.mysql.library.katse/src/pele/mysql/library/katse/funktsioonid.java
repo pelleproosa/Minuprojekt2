@@ -19,8 +19,13 @@ public class funktsioonid {
 			
 	}
 	else{
-		
-		sql_muuda.start("root", "pele", mitu,b,GLOBAL.Players);
+		if(GLOBAL.GameIsOn==false)
+		{
+									sql_muuda.start("root", "pele", mitu,b,GLOBAL.Players);
+		}else
+		{
+									sql_muuda.start("root", "pele", mitu,"hetkeseis_uus_kaart_playerile",GLOBAL.Players);
+		}
 	}
 	
 	
@@ -89,14 +94,14 @@ public class funktsioonid {
 			  
 			//  String sql;
 			  int i=0;
-			  String sql = "SELECT ID, MängijaNimi, Skoor ";
+			 // String sql = "SELECT ID, MängijaNimi, Skoor ";
 		/*	  while(i<GLOBAL.KaartidearvPerHand){
 				  i++;
 			  sql =(sql+ "Kaart"+i+", ");
 					  
 			  }
 			  sql=(sql+"FROM hetkeseis");*/
-			  sql="SELECT * FROM hetkeseis";
+			  String sql="SELECT * FROM hetkeseis";
 		//	  System.out.println(sql);
 			  ResultSet rs = stmt.executeQuery(sql);
 		//	  System.exit(0);
@@ -141,14 +146,15 @@ public class funktsioonid {
 				      i  = rs.getInt("Erinumber");
 				      arv=0;
 				      erinrlugeja=0;
-				     while(arv<(GLOBAL.KaartidearvPerHand+1)){
+				     
+				     while(arv<(GLOBAL.minukaartidearv+1)){
 				    	 arv++;
 				    	 if(i==GLOBAL.handerinr[erinrlugeja]){
 				    		GLOBAL.hand[handlugeja]=rs.getString("PildiUrl");
 				    		GLOBAL.handx[handlugeja]=rs.getString("PildiUrlx");
-				    	//	System.out.println(GLOBAL.hand[handlugeja]+"    "+GLOBAL.handx[handlugeja]+"   "+GLOBAL.KaartidearvPerHand+"   "+handlugeja+"  "+GLOBAL.handerinr[erinrlugeja]);
+				    		System.out.println(GLOBAL.hand[handlugeja]+"    "+GLOBAL.handx[handlugeja]+"   "+GLOBAL.KaartidearvPerHand+"   "+handlugeja+"  "+GLOBAL.handerinr[erinrlugeja]);
 				    				handlugeja++;
-				    				arv=(GLOBAL.KaartidearvPerHand+1);
+				    				arv=(GLOBAL.minukaartidearv+1);
 				    	 }else{
 				    		 erinrlugeja++;
 				    	 }

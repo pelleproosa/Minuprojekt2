@@ -33,7 +33,7 @@ sql_muuda.start("root", "pele", 0,"hetkeseis_uus_kaart_playerile",GLOBAL.minupla
 //System.exit(0);
 //String a="lisa";String b="kustuta";sqltekstisisestuseproov.start("root", "pele",10, "noh!",20,a);
 
-       GLOBAL.minuplayerinumber=2; BorderLayoutDemo.start(null);// nupud kogu aknas näide(nagu veebilehe progemine)
+       BorderLayoutDemo.start(null);// nupud kogu aknas näide(nagu veebilehe progemine)
 		
 	
 		

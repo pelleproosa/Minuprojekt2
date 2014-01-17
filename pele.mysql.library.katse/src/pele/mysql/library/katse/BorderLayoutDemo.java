@@ -96,12 +96,14 @@ public class BorderLayoutDemo {
  //       JButton handformaat=new JButton("handformaat");
         int i=0;
 //        ImageIcon Kaart = new ImageIcon();
-        while(i<(GLOBAL.KaartidearvPerHand-1)){
+        while(i<(GLOBAL.minukaartidearv-1)){
         	i++;
         	//System.out.println(GLOBAL.handx[i]);
  //       	final String str="You clicked the button"+i;
  //       	final int ihi=i;
         	final String str2=""+GLOBAL.hand[i];
+ //       	System.out.println(GLOBAL.hand[7]);
+        	System.out.println(GLOBAL.hand[i]);
         	final String str3="D:/temp/kaardid/2/ec.png";
         	
         
@@ -143,11 +145,12 @@ public class BorderLayoutDemo {
         	hand.add(hiireke);
 
         }
+   //     System.exit(0);
  
         
-        final String str2=""+GLOBAL.hand[GLOBAL.KaartidearvPerHand];
+        final String str2=""+GLOBAL.hand[(GLOBAL.minukaartidearv)];
         final String str3="D:/temp/kaardid/2/ec.png";
-        final JButton hiireke=new JButton(new ImageIcon(GLOBAL.hand[GLOBAL.KaartidearvPerHand]));
+        final JButton hiireke=new JButton(new ImageIcon(GLOBAL.hand[GLOBAL.minukaartidearv]));
     	hiireke.setBackground(Color.GRAY);
     	hiireke.setForeground(Color.GRAY);
     	hiireke.setMargin (new Insets (0, 0, 0, 0));

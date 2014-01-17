@@ -14,4 +14,5 @@ public class GLOBAL {
 	public static int minuplayerinumber=0;
 	public static String vajutus="";
 	public static String vajutusnupp32="";
+	public static boolean GameIsOn=false;
 }
