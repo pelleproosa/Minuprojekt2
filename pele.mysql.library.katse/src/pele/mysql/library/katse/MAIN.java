@@ -22,7 +22,7 @@ funktsioonid.pakijagamine();
 //vahefunktsioon süsteemi liitmata
 GLOBAL.minuplayerinumber=3;
 GLOBAL.minukaartidearv=GLOBAL.KaartidearvPerHand;
-sql_muuda.start("root", "pele", 0,"hetkeseis_uus_kaart_playerile",GLOBAL.minuplayerinumber);       //annab valitud playerile pakist 1 uue kaardi juurde tabelisse kaardipakk.hetkeseis
+//sql_muuda.start("root", "pele", 0,"hetkeseis_uus_kaart_playerile",GLOBAL.minuplayerinumber);       //annab valitud playerile pakist 1 uue kaardi juurde tabelisse kaardipakk.hetkeseis
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 

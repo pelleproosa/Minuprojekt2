@@ -137,6 +137,8 @@ public class BorderLayoutDemo {
                     	GLOBAL.vajutusnupp32=str2;
                     	ImageIcon Kaart32=new ImageIcon(GLOBAL.vajutusnupp32);
     	            	nupp32.setIcon(Kaart32);
+    	            	sql_muuda.start("root", "pele", 0,"hetkeseis_uus_kaart_playerile",GLOBAL.minuplayerinumber);
+    	            	createAndShowGUI();
                   //      JOptionPane.showMessageDialog(null, "Clicked");
                         // do your work here   
                     }
@@ -181,6 +183,8 @@ public class BorderLayoutDemo {
                 	GLOBAL.vajutusnupp32=str2;
                 	ImageIcon Kaart32=new ImageIcon(GLOBAL.vajutusnupp32);
 	            	nupp32.setIcon(Kaart32);
+	            	sql_muuda.start("root", "pele", 0,"hetkeseis_uus_kaart_playerile",GLOBAL.minuplayerinumber);
+	            	createAndShowGUI();
                 //    JOptionPane.showMessageDialog(null, "Clicked");
                     // do your work here   
                 }
