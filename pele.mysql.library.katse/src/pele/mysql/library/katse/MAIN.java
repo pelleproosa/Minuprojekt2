@@ -30,7 +30,7 @@ GLOBAL.minukaartidearv=GLOBAL.KaartidearvPerHand;
 
 
 
-//System.exit(0);
+//System.exit(0);  
 //String a="lisa";String b="kustuta";sqltekstisisestuseproov.start("root", "pele",10, "noh!",20,a);
 
        BorderLayoutDemo.start(null);// nupud kogu aknas näide(nagu veebilehe progemine)
