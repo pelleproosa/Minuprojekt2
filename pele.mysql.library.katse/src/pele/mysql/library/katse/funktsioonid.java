@@ -152,7 +152,7 @@ public class funktsioonid {
 				    	 if(i==GLOBAL.handerinr[erinrlugeja]){
 				    		GLOBAL.hand[handlugeja]=rs.getString("PildiUrl");
 				    		GLOBAL.handx[handlugeja]=rs.getString("PildiUrlx");
-				    		System.out.println(GLOBAL.hand[handlugeja]+"    "+GLOBAL.handx[handlugeja]+"   "+GLOBAL.KaartidearvPerHand+"   "+handlugeja+"  "+GLOBAL.handerinr[erinrlugeja]);
+				    		//System.out.println(GLOBAL.hand[handlugeja]+"    "+GLOBAL.handx[handlugeja]+"   "+GLOBAL.KaartidearvPerHand+"   "+handlugeja+"  "+GLOBAL.handerinr[erinrlugeja]);
 				    				handlugeja++;
 				    				arv=(GLOBAL.minukaartidearv+1);
 				    	 }else{

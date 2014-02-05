@@ -11,9 +11,11 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -30,7 +32,8 @@ public class BorderLayoutDemo {
     static FlowLayout minuflowlayout = new FlowLayout(FlowLayout.CENTER,0,0);
     static JButton proovinupuke=new JButton(new ImageIcon("D:/temp/kaardid/2/ec.png"));
     static JButton nupp32=new JButton();
- //   static JButton nupp32=new JButton(new ImageIcon("D:/temp/kaardid/2/ec.png"));
+    
+    //   static JButton nupp32=new JButton(new ImageIcon("D:/temp/kaardid/2/ec.png"));
 	//proovinupuke.setIcon(new ImageIcon("D:/temp/kaardid/2/ec.png"));
     public static void addComponentsToPane(Container contentPane) {
     	
@@ -59,6 +62,7 @@ public class BorderLayoutDemo {
 
 		nupp32.setBackground(Color.GRAY);
 		nupp32.setForeground(Color.GRAY);
+		
        ImageIcon Kaart2 = new ImageIcon(
                 "D:/temp/kaardid/2/servad/b1fv.png");
         ImageIcon Kaart3 = new ImageIcon(
@@ -103,10 +107,30 @@ public class BorderLayoutDemo {
  //       	final int ihi=i;
         	final String str2=""+GLOBAL.hand[i];
  //       	System.out.println(GLOBAL.hand[7]);
-        	System.out.println(GLOBAL.hand[i]);
+  //      	System.out.println(GLOBAL.hand[i]);
         	final String str3="D:/temp/kaardid/2/ec.png";
         	
         
+        	
+
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        	
         	
         	
         	final JButton hiireke=new JButton(new ImageIcon(GLOBAL.handx[i]));
@@ -137,8 +161,7 @@ public class BorderLayoutDemo {
                     	GLOBAL.vajutusnupp32=str2;
                     	ImageIcon Kaart32=new ImageIcon(GLOBAL.vajutusnupp32);
     	            	nupp32.setIcon(Kaart32);
-    	            	sql_muuda.start("root", "pele", 0,"hetkeseis_uus_kaart_playerile",GLOBAL.minuplayerinumber);
-    	            	createAndShowGUI();
+
                   //      JOptionPane.showMessageDialog(null, "Clicked");
                         // do your work here   
                     }
@@ -183,8 +206,7 @@ public class BorderLayoutDemo {
                 	GLOBAL.vajutusnupp32=str2;
                 	ImageIcon Kaart32=new ImageIcon(GLOBAL.vajutusnupp32);
 	            	nupp32.setIcon(Kaart32);
-	            	sql_muuda.start("root", "pele", 0,"hetkeseis_uus_kaart_playerile",GLOBAL.minuplayerinumber);
-	            	createAndShowGUI();
+
                 //    JOptionPane.showMessageDialog(null, "Clicked");
                     // do your work here   
                 }
@@ -192,7 +214,29 @@ public class BorderLayoutDemo {
      	});
     	hand.add(hiireke);
         
-        
+    	final JButton kaardipakk=new JButton(Kaart2);
+    	kaardipakk.addMouseListener(new java.awt.event.MouseAdapter() {
+    		public void mouseEntered(java.awt.event.MouseEvent evt) {
+
+    			kaardipakk.setBorder (raam2);
+
+    		}public void mouseExited(java.awt.event.MouseEvent evt) {
+    			kaardipakk.setBorder (raam);
+
+    		}
+    		
+            public void mouseClicked(MouseEvent e) {
+
+                if (e.isPopupTrigger() || e.getButton() == MouseEvent.BUTTON1) {
+                	if(GLOBAL.Kaartepakis>0){
+	            	sql_muuda.start("root", "pele", 0,"hetkeseis_uus_kaart_playerile",GLOBAL.minuplayerinumber);
+	            	createAndShowGUI(0);
+	            	
+                	}
+
+                }
+            }
+    	});
 
 		String str="";
 
@@ -219,7 +263,7 @@ public class BorderLayoutDemo {
         			if(i==41){nuppudeformaat=(proovinupuke);}
         			if(i==45){
         				
-        					nuppudeformaat=new JButton(Kaart2);
+        					nuppudeformaat=kaardipakk;
         				
         			}
         			nuppudeformaat.setMargin (new Insets (0, 0, 0, 0));
@@ -261,23 +305,36 @@ public class BorderLayoutDemo {
       contentPane.add(jbnSampleButtons, BorderLayout.LINE_END);
     }
 
-    private static void createAndShowGUI() {
-        JFrame.setDefaultLookAndFeelDecorated(true);
 
-        JFrame frame = new JFrame("Pele cardgames");
+
+    
+        
+    private static void createAndShowGUI(int i) {
+    		
+    		
+    	JFrame.setDefaultLookAndFeelDecorated(true);
+    	
+    	JFrame frame = new JFrame("Pele cardgames");
+
+       
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         //Set up the content pane and add swing components to it
         addComponentsToPane(frame.getContentPane());
         
         frame.setResizable(false);
+        
+    
         frame.pack();
         frame.setVisible(true);
+    
+    	
     }
 
     public static void start(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                createAndShowGUI();
+                createAndShowGUI(0);
             }
         });
     }

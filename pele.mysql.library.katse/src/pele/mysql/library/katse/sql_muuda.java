@@ -34,7 +34,7 @@ try
   stmt = conn.createStatement();
 
   
-  System.out.println("päring: : "+sqltabel);
+  //System.out.println("päring: : "+sqltabel);
   if (sqltabel.equalsIgnoreCase("hetkeseis_jaga_esimest_korda"))
   {		
 	  int id=0;
@@ -82,7 +82,7 @@ try
 	  a=0;
 	  playerjagaja--;
 	  }
-	  System.out.println("kaarte pakis: "+GLOBAL.Kaartepakis);
+	  //System.out.println("kaarte pakis: "+GLOBAL.Kaartepakis);
   }
   if (sqltabel.equalsIgnoreCase("hetkeseis_uus_kaart_playerile"))
   {
@@ -90,20 +90,20 @@ try
 	  															int id=0;
 	  															String sql = "SELECT ID, Erinumber FROM kaardipakist_v6tmine";
 	  															ResultSet rs = stmt.executeQuery(sql);
-	  															System.out.println("kaarte pakis: "+GLOBAL.Kaartepakis);
+	  															//System.out.println("kaarte pakis: "+GLOBAL.Kaartepakis);
 	  															while(rs.next())
 	  								  							{
 	  								  											id  = rs.getInt("ID");
 	  								  											if(GLOBAL.Kaartepakis==id)
 	  								  											{
 	  								  																		erinr=rs.getInt("Erinumber");
-	  								  																		System.out.println("Saadud Erinr: "+erinr+"...ID: "+id);
+	  								  																		//System.out.println("Saadud Erinr: "+erinr+"...ID: "+id);
 	  								  																		break;
 	  								  											}
 	  								  							}
 	  								  							sql = "UPDATE hetkeseis SET Kaart"+(GLOBAL.minukaartidearv+1)+" = "+erinr+" WHERE ID in ("+GLOBAL.minuplayerinumber+")";
 	  								  							stmt.executeUpdate(sql);
-	  								  							System.out.println("hetkeseis kaart"+(GLOBAL.minukaartidearv+1)+" = "+erinr+" kohas ID: "+GLOBAL.minuplayerinumber);
+	  								  							//System.out.println("hetkeseis kaart"+(GLOBAL.minukaartidearv+1)+" = "+erinr+" kohas ID: "+GLOBAL.minuplayerinumber);
 	  								  
 	  							  
 	  							  
@@ -113,7 +113,7 @@ try
 
 	  								  							sql = "UPDATE kaardipakist_v6tmine SET Erinumber = "+0+" WHERE ID in ("+id+")";
 	  								  							stmt.executeUpdate(sql);
-	  								  							System.out.println("kaardipakist_v6tmine Erinumber ="+0+" WHERE ID in "+id);
+	  								  							//System.out.println("kaardipakist_v6tmine Erinumber ="+0+" WHERE ID in "+id);
 	  								  							GLOBAL.Kaartepakis--;
 	  								  							GLOBAL.minukaartidearv++;
 

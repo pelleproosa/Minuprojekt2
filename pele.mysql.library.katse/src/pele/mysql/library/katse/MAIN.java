@@ -11,9 +11,9 @@ public class MAIN {
 	//	abiprogrammid.start();
 
 sql_muuda.start("root", "pele", 0,"puhastahetkeseis",GLOBAL.Players);
-GLOBAL.Players=4;GLOBAL.KaartidearvPerHand=6;GLOBAL.Kaartepakis=36;GLOBAL.mitukaartiplayerile=GLOBAL.KaartidearvPerHand; //players 1-4  kaartidearv perhand 1-13 kaartepakis 36/52-55            /// segab uue jaotuse
+GLOBAL.Players=4;GLOBAL.KaartidearvPerHand=3;GLOBAL.Kaartepakis=52;GLOBAL.mitukaartiplayerile=GLOBAL.KaartidearvPerHand; //players 1-4  kaartidearv perhand 1-13 kaartepakis 36/52-55            /// segab uue jaotuse
 funktsioonid.teekaardipakk();
-System.out.println(GLOBAL.Players+"      "+GLOBAL.KaartidearvPerHand+"       "+GLOBAL.Kaartepakis);
+//System.out.println(GLOBAL.Players+"      "+GLOBAL.KaartidearvPerHand+"       "+GLOBAL.Kaartepakis);
 
 funktsioonid.pakijagamine();
 
